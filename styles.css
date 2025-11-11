@@ -934,6 +934,47 @@ body {
   transform: scale(0.97);
 }
 
+/* ===== AR (3D) button: outlined by default, primary on hover/active ===== */
+.ar-btn {
+  /* default: match .btn-secondary / outlined look */
+  background: var(--bg-secondary) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  padding: 0 1rem;
+  height: 44px;
+  min-width: 64px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.12s ease, box-shadow 0.18s ease;
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* hover / focus -> primary (pink) */
+.ar-btn:hover,
+.ar-btn:focus {
+  background: var(--primary) !important;
+  color: #fff !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(183, 110, 121, 0.14);
+}
+
+/* active / selected state */
+.ar-btn.active,
+.ar-btn:active {
+  background: var(--primary) !important;
+  color: #fff !important;
+  border-color: var(--primary) !important;
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(183, 110, 121, 0.18);
+}
+
+
 /* ========== EMPTY STATES ========== */
 .empty-state {
   text-align: center;
@@ -1628,11 +1669,12 @@ body {
 
 /* Glass Morphism Effects */
 .glass-effect {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
+
 
 .glass-card {
   background: var(--glass-bg);
@@ -3150,40 +3192,6 @@ body {
 }
 
 
-/* 🌟 Specials Page Buttons — Always white until clicked */
-#specialsSection .btn,
-#specialsSection .btn-primary,
-#specialsSection .btn-secondary {
-  background: #fff !important;
-  color: var(--primary) !important;
-  border: 1px solid var(--primary) !important;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.25s ease;
-  box-shadow: none;
-}
-
-/* 🩶 Hover — stays white, slight shadow lift */
-#specialsSection .btn:hover,
-#specialsSection .btn-primary:hover,
-#specialsSection .btn-secondary:hover {
-  background: #fff !important;
-  color: var(--primary-dark) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(183, 110, 121, 0.15);
-}
-
-/* 🩷 Active (clicked) — pink background + white text */
-#specialsSection .btn:active,
-#specialsSection .btn.active,
-#specialsSection .btn-primary:active,
-#specialsSection .btn-secondary:active {
-  background: var(--primary) !important;
-  color: #fff !important;
-  transform: scale(0.97);
-  box-shadow: 0 0 8px rgba(183, 110, 121, 0.4);
-}
-
 /* === FIX MENU IMAGE CROPPING & MOBILE RESPONSIVENESS === */
 
 /* Make images fully visible inside cards */
@@ -3302,4 +3310,133 @@ body {
 .modal-actions {
   margin-top: 1.5rem;
   padding-bottom: 1rem; /* ensures it's fully visible */
+}
+
+/* ===== Culinary Artists Section ===== */
+.team-section {
+  padding: 80px 0;
+  background: #fff; /* or transparent if you want to blend with background */
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #1e2a38;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+.team-member {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.member-image {
+  position: relative;
+}
+
+.member-image img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.member-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.team-member:hover .member-overlay {
+  opacity: 1;
+}
+
+.member-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.member-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.member-role {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.member-bio {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.member-signature-dish, .member-specialty {
+  font-weight: 600;
+  color: #b35a1f;
+  margin-top: 10px;
+}
+
+/* ===== Footer Map Section ===== */
+.footer-map {
+  margin-top: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-map:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust layout spacing */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1 1 240px;
+}
+
+.footer-bottom {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
