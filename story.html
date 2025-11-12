@@ -223,7 +223,7 @@
 
           <div class="team-member stagger-item">
             <div class="member-image">
-              <img src="images/team/anita_sharma.jpeg" alt="Executive Chef Anita Sharma" loading="lazy">
+              <img src="images/team/anita_sharma.png" alt="Executive Chef Anita Sharma" loading="lazy">
               <div class="member-overlay">
                 <h4>Anita Sharma</h4>
                 <p>Executive Chef</p>
@@ -247,7 +247,7 @@
 
           <div class="team-member stagger-item">
             <div class="member-image">
-              <img src="images/team/rahul_kapoor.jpeg" alt="Head Pastry Chef Rahul Kapoor" loading="lazy">
+              <img src="images/team/rahul_kapoor.png" alt="Head Pastry Chef Rahul Kapoor" loading="lazy">
               <div class="member-overlay">
                 <h4>Rahul Kapoor</h4>
                 <p>Head Pastry Chef</p>
@@ -270,7 +270,7 @@
 
           <div class="team-member stagger-item">
             <div class="member-image">
-              <img src="images/team/priya_singh.jpeg" alt="Head Sommelier Priya Singh" loading="lazy">
+              <img src="images/team/priya_singh.png" alt="Head Sommelier Priya Singh" loading="lazy">
               <div class="member-overlay">
                 <h4>Priya Singh</h4>
                 <p>Head Sommelier</p>
@@ -378,57 +378,52 @@
 
 
   <!-- Footer -->
-<footer class="footer v2">
-  <div class="footer-wrapper">
-    <div class="footer-info">
-      <div class="footer-section">
-        <h4>The Leela</h4>
-        <p>Premium dining experience with innovative digital menu</p>
-        <div class="social-links">
-          <a href="https://www.instagram.com/theleela" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.facebook.com/theleela" target="_blank" aria-label="Facebook">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="https://twitter.com/theleela" target="_blank" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
+  <footer class="footer v2">
+    <div class="footer-wrapper">
+      <div class="footer-info">
+        <div class="footer-section">
+          <h4>The Leela</h4>
+          <p>Premium dining experience with innovative digital menu</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/theleela" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/theleela" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/theleela" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📍 123 Gourmet Street</p>
+          <p>📞 +1 234 567 890</p>
+          <p>✉️ hello@leela.com</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Hours</h4>
+          <p>Mon–Fri: 11:00 – 22:00</p>
+          <p>Weekend: 10:00 – 23:00</p>
         </div>
       </div>
 
-      <div class="footer-section">
-        <h4>Contact</h4>
-        <p>📍 123 Gourmet Street</p>
-        <p>📞 +1 234 567 890</p>
-        <p>✉️ hello@leela.com</p>
-      </div>
-
-      <div class="footer-section">
-        <h4>Hours</h4>
-        <p>Mon–Fri: 11:00 – 22:00</p>
-        <p>Weekend: 10:00 – 23:00</p>
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.468936651218!2d77.69109997481767!3d12.98030569084562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae134d38bce6cf%3A0x78eb5ed3f1de3de6!2sThe%20Leela%20Palace%20Bengaluru!5e0!3m2!1sen!2sin!4v1699870452025!5m2!1sen!2sin"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
 
-    <div class="footer-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.468936651218!2d77.69109997481767!3d12.98030569084562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae134d38bce6cf%3A0x78eb5ed3f1de3de6!2sThe%20Leela%20Palace%20Bengaluru!5e0!3m2!1sen!2sin!4v1699870452025!5m2!1sen!2sin"
-        width="100%"
-        height="260"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+    <div class="footer-bottom">
+      <p>&copy; 2024 The Leela. All rights reserved.</p>
+      <a href="https://wa.me/918377861214" target="_blank" class="visuplate">Visuplate by G&amp;H</a>
     </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2024 The Leela. All rights reserved.</p>
-    <a href="https://wa.me/918377861214" target="_blank" class="visuplate">Visuplate by G&amp;H</a>
-  </div>
-</footer>
+  </footer>
 
   <!-- Scripts -->
   <script src="story.js"></script>
@@ -473,15 +468,47 @@
       }
     });
 
-    // Show gesture hint on mobile
+    // ✅ Smart Gesture Navigation (prevents accidental page switches)
     if (window.innerWidth <= 768) {
-      setTimeout(() => {
-        document.getElementById('gestureHint').classList.add('show');
+      let startX = 0, startY = 0;
+
+      document.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      });
+
+      document.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+
+        // ✅ Only count as swipe if it's mostly horizontal
+        if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+          if (diffX > 0) {
+            // Swipe left → Go to Ambience
+            window.location.href = 'ambience.html';
+          } else {
+            // Swipe right → Go to Specials
+            window.location.href = 'specials.html';
+          }
+        }
+      });
+
+      // ✅ Optional swipe hint (safe check)
+      const hint = document.getElementById('gestureHint');
+      if (hint) {
         setTimeout(() => {
-          document.getElementById('gestureHint').classList.remove('show');
-        }, 5000);
-      }, 3000);
+          hint.classList.add('show');
+          setTimeout(() => {
+            hint.classList.remove('show');
+          }, 5000);
+        }, 3000);
+      }
     }
+
+
 
     // Celebration effect when reaching the end of story
     const finalQuote = document.querySelector('.final-quote-section');
