@@ -3442,74 +3442,80 @@ body {
 }
 
 /* =====================================================
-   THE LEELA FOOTER — FINAL TIGHT + BALANCED LAYOUT
+   🌐 THE LEELA FOOTER — FLUID RESPONSIVE VERSION
    ===================================================== */
+
 .footer.v2 {
   background: linear-gradient(135deg, #fff8f9, #fff3f5);
   color: #2c2c2c;
-  padding: 3rem 1.5rem 2rem;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
   border-top: 1px solid rgba(183, 110, 121, 0.2);
   box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.04);
   font-family: var(--font-sans);
+  box-sizing: border-box;
 }
 
-/* Main wrapper: left (info) + right (map) */
+/* Wrapper: info + map */
 .footer.v2 .footer-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: clamp(1rem, 3vw, 2rem);
   max-width: 1200px;
-  margin: 0 auto 2rem;
+  margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Left side now uses grid for tighter, cleaner layout */
+/* Left section grid */
 .footer.v2 .footer-info {
   flex: 1;
-  min-width: 500px;
+  min-width: min(100%, 520px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  width: 100%;
 }
 
-/* Individual section spacing tightened */
 .footer.v2 .footer-section {
   margin: 0;
+  text-align: left;
 }
 
 .footer.v2 .footer-section h4 {
   color: var(--primary);
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
 .footer.v2 .footer-section p {
   color: #555;
-  margin: 0.2rem 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  margin: 0.25rem 0;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.45;
 }
 
-/* Social icons styling */
+/* Social icons */
 .footer.v2 .social-links {
   display: flex;
-  gap: 0.6rem;
+  gap: clamp(0.5rem, 2vw, 0.8rem);
   margin-top: 0.4rem;
+  flex-wrap: wrap;
 }
 
 .footer.v2 .social-links a {
-  width: 34px;
-  height: 34px;
+  width: clamp(32px, 4vw, 36px);
+  height: clamp(32px, 4vw, 36px);
   border-radius: 50%;
   background: #f3dfe1;
   color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
   transition: all 0.3s ease;
 }
 
@@ -3519,29 +3525,41 @@ body {
   transform: translateY(-2px);
 }
 
-/* Map box */
+/* Map */
 .footer.v2 .footer-map {
   flex: 1;
-  min-width: 360px;
+  width: 100%;
+  min-width: min(100%, 400px);
   max-width: 520px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  align-self: flex-start;
+  margin: 0 auto;
 }
 
-/* Bottom area */
+.footer.v2 .footer-map iframe {
+  width: 100%;
+  height: clamp(200px, 35vw, 280px);
+  border: 0;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Bottom bar */
 .footer.v2 .footer-bottom {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  padding-top: 1.25rem;
+  padding-top: clamp(1rem, 2vw, 1.25rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+  gap: clamp(0.4rem, 2vw, 0.75rem);
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
   color: #666;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .footer.v2 .visuplate {
@@ -3550,7 +3568,9 @@ body {
   font-weight: 600;
 }
 
-/* Responsive layout */
+/* =====================================================
+   📱 MOBILE-OPTIMIZED STACKING
+   ===================================================== */
 @media (max-width: 900px) {
   .footer.v2 .footer-wrapper {
     flex-direction: column;
@@ -3562,13 +3582,19 @@ body {
     text-align: center;
   }
 
+  .footer.v2 .footer-section {
+    text-align: center;
+  }
+
   .footer.v2 .social-links {
     justify-content: center;
   }
 
   .footer.v2 .footer-map {
+    order: 2;
     width: 100%;
     max-width: 100%;
+    border-radius: 12px;
   }
 
   .footer.v2 .footer-bottom {
