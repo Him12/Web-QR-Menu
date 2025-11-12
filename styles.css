@@ -3602,3 +3602,12 @@ body {
     text-align: center;
   }
 }
+
+/* Hide AR button only on special.html */
+body.special-page #modalAR {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+

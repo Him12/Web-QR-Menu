@@ -101,11 +101,16 @@
     <div class="modal-backdrop"></div>
     <div class="modal-container ar-modal">
       <div class="modal-content">
-        <button class="modal-close" id="closeModelModal"><i class="fas fa-times"></i></button>
+        <button class="modal-close" id="closeModelModal">
+          <i class="fas fa-times"></i>
+        </button>
+
         <model-viewer id="mv" src="" alt="3D model" camera-controls auto-rotate ar
           ar-modes="webxr scene-viewer quick-look" ar-scale="auto" shadow-intensity="1"
-          style="width:100%;height:70vh;border-radius:10px;">
-          <button slot="ar-button" class="ar-button" id="manualARButton">👓 View in your space</button>
+          style="width:100%;height:70vh;border-radius:10px;position:relative;">
+          <button slot="ar-button" class="ar-button" id="manualARButton">
+            👓 View in your space
+          </button>
         </model-viewer>
       </div>
     </div>
@@ -202,6 +207,18 @@
 </footer>
 
   <script src="specials.js"></script>
+    <!-- Hide AR button only on specials.html -->
+  <style>
+    #modalAR {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  </style>
+
+  <script src="specials.js"></script>
+
 
   <script>
     // 🌙 Simple Theme Toggle

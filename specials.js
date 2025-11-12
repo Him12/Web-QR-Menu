@@ -167,3 +167,53 @@ document.addEventListener("DOMContentLoaded", async () => {
     emptyState.style.display = "block";
   }
 });
+
+// 🎨 Fix and keep AR button functional but remove the default pink styling
+window.addEventListener("DOMContentLoaded", () => {
+  const mv = document.getElementById("mv");
+  if (!mv) return;
+
+  // Function to restyle AR button safely
+  const restyleARButton = () => {
+    const arButton = mv.shadowRoot?.querySelector('.ar-button');
+    if (!arButton) return;
+
+    // Apply clean white theme
+    arButton.style.background = "#fff";
+    arButton.style.color = "#5B1A18";
+    arButton.style.border = "2px solid #5B1A18";
+    arButton.style.borderRadius = "8px";
+    arButton.style.padding = "10px 18px";
+    arButton.style.fontWeight = "600";
+    arButton.style.fontSize = "0.95rem";
+    arButton.style.boxShadow = "0 2px 8px rgba(0,0,0,0.08)";
+    arButton.style.transition = "all 0.25s ease";
+    arButton.style.cursor = "pointer";
+
+    // Center & elevate it cleanly
+    arButton.style.position = "absolute";
+    arButton.style.bottom = "16px";
+    arButton.style.left = "50%";
+    arButton.style.transform = "translateX(-50%)";
+
+    // Hover behavior
+    arButton.onmouseenter = () => {
+      arButton.style.background = "#5B1A18";
+      arButton.style.color = "#fff";
+      arButton.style.boxShadow = "0 6px 18px rgba(91,26,24,0.25)";
+    };
+    arButton.onmouseleave = () => {
+      arButton.style.background = "#fff";
+      arButton.style.color = "#5B1A18";
+      arButton.style.boxShadow = "0 2px 8px rgba(0,0,0,0.08)";
+    };
+  };
+
+  // Initial restyle after render
+  setTimeout(restyleARButton, 1200);
+
+  // Also restyle every time the model changes (for dynamic updates)
+  mv.addEventListener("load", () => setTimeout(restyleARButton, 500));
+  mv.addEventListener("ar-status", () => setTimeout(restyleARButton, 500));
+});
+
