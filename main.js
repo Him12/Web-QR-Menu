@@ -455,12 +455,12 @@ class PremiumMenu {
         this.attachItemEventListeners();
     }
 
-   // ✅ Updated version with View / 3D / Video buttons (fixed label)
-createMenuItemHTML(item) {
-    const t = item.translations?.[this.currentLang] || item.translations?.en || {};
-    const badges = this.createDietaryBadges(item);
+    // ✅ Updated version with View / 3D / Video buttons (fixed label)
+    createMenuItemHTML(item) {
+        const t = item.translations?.[this.currentLang] || item.translations?.en || {};
+        const badges = this.createDietaryBadges(item);
 
-    return `
+        return `
         <div class="menu-card" data-item-id="${item.id}">
             <div class="card-media">
                 <img src="${item.image}" alt="${t.name}" class="card-img" loading="lazy">
@@ -500,7 +500,7 @@ createMenuItemHTML(item) {
             </div>
         </div>
     `;
-}
+    }
 
     // 🎥 Open video in new tab
     openVideo(item) {
@@ -527,23 +527,23 @@ createMenuItemHTML(item) {
     }
 
     attachItemEventListeners() {
-    if (!this.menuArea) return;
-    this.menuArea.querySelectorAll('.menu-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            // Ignore clicks on buttons inside cards
-            if (e.target.closest('button')) return;
+        if (!this.menuArea) return;
+        this.menuArea.querySelectorAll('.menu-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Ignore clicks on buttons inside cards
+                if (e.target.closest('button')) return;
 
-            // Trigger micro motion on card tap
-            card.classList.add('clicked');
-            setTimeout(() => card.classList.remove('clicked'), 400);
+                // Trigger micro motion on card tap
+                card.classList.add('clicked');
+                setTimeout(() => card.classList.remove('clicked'), 400);
 
-            // Open item modal as usual
-            const itemId = card.dataset.itemId;
-            const item = this.findItemById(itemId);
-            if (item) this.openItemModal(item);
+                // Open item modal as usual
+                const itemId = card.dataset.itemId;
+                const item = this.findItemById(itemId);
+                if (item) this.openItemModal(item);
+            });
         });
-    });
-}
+    }
 
 
     filterMenu() {
@@ -718,11 +718,23 @@ createMenuItemHTML(item) {
     }
 
     updateContent() {
+        // Keep track of which category is open
+        const previousCategory = this.openCategory || "all";
+
+        // Rebuild category navigation with translated labels
         this.buildCategoryNav();
+
+        // Keep the same category selected
+        this.openCategory = previousCategory;
+        this.updateCategoryNav();
+
+        // Re-render the menu cards with the new language
         this.renderMenu();
-        // this.renderFavorites(); // ❌
+
+        // Save the selected language to localStorage
         localStorage.setItem('language', this.currentLang);
     }
+
 
     handleScroll() {
         if (this.header) {
